@@ -48,3 +48,39 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
     USERNAME_FIELD = 'email'
+
+
+class RentalListing(models.Model):
+    """Individual rental listing"""
+
+    bathrooms = models.IntegerField()
+    bedrooms = models.IntegerField()
+    city = models.CharField(max_length=200)
+    country = models.CharField(max_length=200)
+    currency = models.CharField(max_length=10)
+    days_on_zillow = models.IntegerField()
+    home_status = models.CharField(max_length=200)
+    home_status_for_HDP = models.CharField(max_length=200)
+    home_type = models.CharField(max_length=200)
+    img_src = models.URLField()
+    is_featured = models.BooleanField()
+    is_non_owner_occupied = models.BooleanField()
+    is_preforeclosure_auction = models.BooleanField()
+    is_premier_builder = models.BooleanField()
+    is_rental_with_base_price = models.BooleanField()
+    is_showcase_listing = models.BooleanField()
+    is_unmappable = models.BooleanField()
+    is_zillow_owned = models.BooleanField()
+    latitude = models.FloatField()
+    listing_sub_type = models.CharField(max_length=200, blank=True, null=True)
+    living_area = models.IntegerField()
+    longitude = models.FloatField()
+    price = models.IntegerField()
+    price_for_HDP = models.IntegerField()
+    rent_zestimate = models.IntegerField()
+    should_highlight = models.BooleanField()
+    state = models.CharField(max_length=50)
+    street_address = models.CharField(max_length=200)
+    unit = models.CharField(max_length=50, blank=True, null=True)
+    zipcode = models.CharField(max_length=10)
+    zpid = models.IntegerField(unique=True)
